@@ -1,7 +1,8 @@
 const PORT = 8000;
 const express = require("express");
 const { MongoClient } = require("mongodb");
-// const uri =
+const uri =
+  "mongodb+srv://DDeShon:<password>@cluster0.4zs5l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const app = express();
 
