@@ -11,7 +11,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  res.json("Welcome to my app");
+  const client = new MongoClient(uri);
+  const { email, password } = req.body;
 });
 
 app.get("/users", async (req, res) => {
