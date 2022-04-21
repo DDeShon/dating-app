@@ -1,6 +1,7 @@
 const PORT = 8000;
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const { v4: uuidv4 } = require("uuid");
 const uri =
   "mongodb+srv://DDeShon:mypassword@cluster0.4zs5l.mongodb.net/Cluster0?retryWrites=true&w=majority";
 
@@ -13,6 +14,8 @@ app.get("/", (req, res) => {
 app.post("/signup", (req, res) => {
   const client = new MongoClient(uri);
   const { email, password } = req.body;
+
+  const generatedUserId = uuidv4();
 });
 
 app.get("/users", async (req, res) => {
