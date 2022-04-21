@@ -27,7 +27,7 @@ const AuthModal = ({ setShowModal, isSignedUp }) => {
         password,
       });
 
-      const success = response.status == 201;
+      const success = response.status === 201;
 
       if (success) navigate("/onboarding");
     } catch (error) {
