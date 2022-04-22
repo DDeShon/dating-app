@@ -31,7 +31,7 @@ const AuthModal = ({ setShowModal, isSignedUp }) => {
 
       setCookie("Email", response.data.email);
       setCookie("UserId", response.data.userId);
-      setCookie("AuthToken", response.data.authToken);
+      setCookie("AuthToken", response.data.token);
 
       const success = response.status === 201;
 
