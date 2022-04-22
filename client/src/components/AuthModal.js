@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-const AuthModal = ({ setShowModal, isSignUp }) => {
+const AuthModal = ({ setShowModal, isSignedUp }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
@@ -19,13 +19,13 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (isSignUp && password !== confirmPassword) {
+      if (isSignedUp && password !== confirmPassword) {
         setError("Passwords do not match");
         return;
       }
 
       const response = await axios.post(
-        `http://localhost:8000/${isSignUp ? "signup" : "login"}`,
+        `http://localhost:8000/${isSignedUp ? "signup" : "login"}`,
         {
           email,
           password,
@@ -38,8 +38,8 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
 
       const success = response.status === 201;
 
-      if (success && isSignUp) navigate("/onboarding");
-      if (success && !isSignUp) navigate("/dashboard");
+      if (success && isSignedUp) navigate("/onboarding");
+      if (success && !isSignedUp) navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -50,7 +50,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       <div className="close-icon" onClick={handleClick}>
         ⓧ
       </div>
-      <h2>{isSignUp ? "CREATE ACCOUNT" : "LOG IN"}</h2>
+      <h2>{isSignedUp ? "CREATE ACCOUNT" : "LOG IN"}</h2>
       <p>
         By clicking LOG IN, you agree to our terms. Learn how we process your
         data in our Privacy Policy and Cookie Policy
@@ -72,7 +72,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
           required={true}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {isSignUp && (
+        {isSignedUp && (
           <input
             type="password"
             id="password-check"
