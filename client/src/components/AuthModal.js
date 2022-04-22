@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-const AuthModal = ({ setShowModal, isSignedUp }) => {
+const AuthModal = ({ setShowModal, isSignUp }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
@@ -19,15 +19,18 @@ const AuthModal = ({ setShowModal, isSignedUp }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (isSignedUp && password !== confirmPassword) {
+      if (isSignUp && password !== confirmPassword) {
         setError("Passwords do not match");
         return;
       }
 
-      const response = await axios.post("http://localhost:8000/signup", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `http://localhost:8000/${isSignUp ? "signup" : "login"}`,
+        {
+          email,
+          password,
+        }
+      );
 
       setCookie("Email", response.data.email);
       setCookie("UserId", response.data.userId);
@@ -35,7 +38,8 @@ const AuthModal = ({ setShowModal, isSignedUp }) => {
 
       const success = response.status === 201;
 
-      if (success) navigate("/onboarding");
+      if (success && isSignUp) navigate("/onboarding");
+      if (success && !isSignUp) navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +50,7 @@ const AuthModal = ({ setShowModal, isSignedUp }) => {
       <div className="close-icon" onClick={handleClick}>
         ⓧ
       </div>
-      <h2>{isSignedUp ? "CREATE ACCOUNT" : "LOG IN"}</h2>
+      <h2>{isSignUp ? "CREATE ACCOUNT" : "LOG IN"}</h2>
       <p>
         By clicking LOG IN, you agree to our terms. Learn how we process your
         data in our Privacy Policy and Cookie Policy
@@ -68,7 +72,7 @@ const AuthModal = ({ setShowModal, isSignedUp }) => {
           required={true}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {isSignedUp && (
+        {isSignUp && (
           <input
             type="password"
             id="password-check"
