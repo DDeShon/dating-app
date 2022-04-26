@@ -5,7 +5,6 @@ import Nav from "../components/Nav";
 const OnBoarding = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [formData, setFormData] = useState({
-    user_id: cookies.UserId,
     first_name: "",
     dob_day: "",
     dob_month: "",
@@ -13,7 +12,6 @@ const OnBoarding = () => {
     show_gender: "",
     gender_identity: "",
     gender_interest: "",
-    email: cookies.Email,
     url: "",
     about: "",
     matches: [],
