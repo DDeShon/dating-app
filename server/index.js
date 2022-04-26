@@ -119,8 +119,10 @@ app.put("/user", async (req, res) => {
         matches: formData.matches,
       },
     };
-  } catch (err) {
-    console.log(err);
+    const insertedUser = await users.updateOne(query, updateDocument);
+    res.send(insertedUser);
+  } finally {
+    await client.close();
   }
 });
 
