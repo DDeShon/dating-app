@@ -5,6 +5,7 @@ import Nav from "../components/Nav";
 const OnBoarding = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [formData, setFormData] = useState({
+    user_id: cookies.UserId,
     first_name: "",
     dob_day: "",
     dob_month: "",
@@ -169,7 +170,9 @@ const OnBoarding = () => {
               required={true}
             />
             <div className="photo-container">
-              <img src={formData.url} alt="profile picture preview" />
+              {formData.url && (
+                <img src={formData.url} alt="profile picture preview" />
+              )}
             </div>
           </section>
         </form>
