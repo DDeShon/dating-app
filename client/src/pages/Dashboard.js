@@ -1,8 +1,7 @@
 import TinderCard from "react-tinder-card";
 import axios from "axios";
 import ChatContainer from "../components/ChatContainer";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
 const Dashboard = () => {
@@ -21,9 +20,9 @@ const Dashboard = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getUser();
-  // }, [user]);
+  useEffect(() => {
+    getUser();
+  }, []);
 
   console.log("user", user);
 
