@@ -302,7 +302,7 @@ nav .nav-button:disabled {
   padding: 20px;
 }
 
-.img-container {
+.chat-container .img-container {
   height: 30px;
   width: 30px;
   border-radius: 15px;
@@ -310,8 +310,12 @@ nav .nav-button:disabled {
   margin: 10px;
 }
 
-.img-container img {
+.chat-container .img-container img {
   width: 100%;
+}
+
+.chat-container .log-out-icon {
+  cursor: pointer;
 }
 
 /*----- Chat Display -----*/
