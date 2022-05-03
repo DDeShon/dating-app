@@ -104,7 +104,7 @@ app.get("/gendered-users", async (req, res) => {
     await client.connect();
     const database = client.db("app-data");
     const users = database.collection("users");
-    const query = { gender_identity: gender };
+    const query = { gender_identity: { $eq: gender } };
     const foundUsers = await users.find(query).toArray();
 
     res.send(foundUsers);
