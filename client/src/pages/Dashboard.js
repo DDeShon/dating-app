@@ -35,7 +35,7 @@ const Dashboard = () => {
   useEffect(() => {
     getUser();
     getGenderedUsers();
-  }, []);
+  }, [user, genderedUsers]);
 
   console.log("user", user);
   console.log("gendered-users", genderedUsers);
@@ -62,6 +62,7 @@ const Dashboard = () => {
       url: "https://i.imgur.com/oPj4A8u.jpg",
     },
   ];
+
   const [lastDirection, setLastDirection] = useState();
 
   const swiped = (direction, nameToDelete) => {
