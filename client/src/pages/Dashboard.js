@@ -63,7 +63,7 @@ const Dashboard = () => {
     },
     {
       name: "Michael Scott",
-      url: "https://i.imgur.com/oPj4A8u.jpg",
+      url: "https://lastfm.freetls.fastly.net/i/u/ar0/b1c3c53f4e754d80a1aa0d51bb96f7dc.jpg",
     },
   ];
 
