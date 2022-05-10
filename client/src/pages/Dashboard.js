@@ -61,6 +61,10 @@ const Dashboard = () => {
       name: "Dinesh Chugtai",
       url: "https://i.imgur.com/oPj4A8u.jpg",
     },
+    {
+      name: "Michael Scott",
+      url: "https://i.imgur.com/oPj4A8u.jpg",
+    },
   ];
 
   const [lastDirection, setLastDirection] = useState();
