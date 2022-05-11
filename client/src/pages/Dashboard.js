@@ -37,9 +37,6 @@ const Dashboard = () => {
     getGenderedUsers();
   }, [user, genderedUsers]);
 
-  console.log("user", user);
-  console.log("gendered-users", genderedUsers);
-
   const characters = [
     {
       name: "Richard Hendricks",
