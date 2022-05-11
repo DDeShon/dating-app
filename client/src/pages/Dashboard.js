@@ -81,7 +81,7 @@ const Dashboard = () => {
           <ChatContainer user={user} />
           <div className="swipe-container">
             <div className="card-container">
-              {genderedUsers.map((character) => (
+              {genderedUsers?.map((character) => (
                 <TinderCard
                   className="swipe"
                   key={CharacterData.name}
@@ -92,7 +92,7 @@ const Dashboard = () => {
                     style={{ backgroundImage: "url(" + character.url + ")" }}
                     className="card"
                   >
-                    <h3>{character.name}</h3>
+                    <h3>{character.first_name}</h3>
                   </div>
                 </TinderCard>
               ))}
