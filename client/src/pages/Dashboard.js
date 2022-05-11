@@ -7,6 +7,7 @@ import { useCookies } from "react-cookie";
 const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [genderedUsers, setGenderedUsers] = useState(null);
+  const [lastDirection, setLastDirection] = useState();
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const userId = cookies.UserId;
@@ -37,34 +38,32 @@ const Dashboard = () => {
     getGenderedUsers();
   }, [user, genderedUsers]);
 
-  const characters = [
-    {
-      name: "Richard Hendricks",
-      url: "https://i.imgur.com/oPj4A8u.jpg",
-    },
-    {
-      name: "Erlich Bachman",
-      url: "https://i.imgur.com/oPj4A8u.jpg",
-    },
-    {
-      name: "Monica Hall",
-      url: "https://i.imgur.com/oPj4A8u.jpg",
-    },
-    {
-      name: "Jared Dunn",
-      url: "https://i.imgur.com/oPj4A8u.jpg",
-    },
-    {
-      name: "Dinesh Chugtai",
-      url: "https://i.imgur.com/oPj4A8u.jpg",
-    },
-    {
-      name: "Michael Scott",
-      url: "https://lastfm.freetls.fastly.net/i/u/ar0/b1c3c53f4e754d80a1aa0d51bb96f7dc.jpg",
-    },
-  ];
-
-  const [lastDirection, setLastDirection] = useState();
+  // const characters = [
+  //   {
+  //     name: "Richard Hendricks",
+  //     url: "https://i.imgur.com/oPj4A8u.jpg",
+  //   },
+  //   {
+  //     name: "Erlich Bachman",
+  //     url: "https://i.imgur.com/oPj4A8u.jpg",
+  //   },
+  //   {
+  //     name: "Monica Hall",
+  //     url: "https://i.imgur.com/oPj4A8u.jpg",
+  //   },
+  //   {
+  //     name: "Jared Dunn",
+  //     url: "https://i.imgur.com/oPj4A8u.jpg",
+  //   },
+  //   {
+  //     name: "Dinesh Chugtai",
+  //     url: "https://i.imgur.com/oPj4A8u.jpg",
+  //   },
+  //   {
+  //     name: "Michael Scott",
+  //     url: "https://lastfm.freetls.fastly.net/i/u/ar0/b1c3c53f4e754d80a1aa0d51bb96f7dc.jpg",
+  //   },
+  // ];
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
@@ -82,7 +81,7 @@ const Dashboard = () => {
           <ChatContainer user={user} />
           <div className="swipe-container">
             <div className="card-container">
-              {characters.map((character) => (
+              {genderedUsers.map((character) => (
                 <TinderCard
                   className="swipe"
                   key={CharacterData.name}
