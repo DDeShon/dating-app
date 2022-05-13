@@ -65,9 +65,21 @@ const Dashboard = () => {
   //   },
   // ];
 
-  const swiped = (direction, nameToDelete) => {
+  const updateMatches = async (matchedUserId) => {
+    try {
+      await axios.put("http://localhost:8000/addmatch", {
+        userId,
+        matchedUserId,
+      });
+      getUser();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const swiped = (direction, swipedUserId) => {
     if (direction === "right") {
-      updatedMatches(swipedUser.user_id);
+      updateMatches(swipedUserId);
     }
     setLastDirection(direction);
   };
