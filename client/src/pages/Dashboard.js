@@ -66,7 +66,9 @@ const Dashboard = () => {
   // ];
 
   const swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
+    if (direction === "right") {
+      updatedMatches(swipedUser.user_id);
+    }
     setLastDirection(direction);
   };
 
@@ -84,9 +86,9 @@ const Dashboard = () => {
               {genderedUsers?.map((genderedUser) => (
                 <TinderCard
                   className="swipe"
-                  key={genderedUser.name}
-                  onSwipe={(dir) => swiped(dir, genderedUser.name)}
-                  onCardLeftScreen={() => outOfFrame(genderedUser.name)}
+                  key={genderedUser.first_name}
+                  onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
+                  onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}
                 >
                   <div
                     style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
