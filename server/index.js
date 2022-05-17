@@ -157,8 +157,9 @@ app.put("/addmatch", async (req, res) => {
       push: { matches: { user_id: matchedUserId } },
     };
     const user = await users.updateOne(query, updateDocument);
-  } catch (err) {
-    console.log(err);
+    res.send(user);
+  } finally {
+    await client.close();
   }
 });
 
