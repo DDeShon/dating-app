@@ -152,7 +152,14 @@ app.put("/addmatch", async (req, res) => {
     await client.connect();
     const database = client.db("ap-data");
     const users = database.collection("users");
+    const query = { user_id: userId };
+    const updateDocument = {
+      push: { matches: { user_id: matchedUserId } },
+    };
+    const user = await users.updateOne(query, updateDocument);
+  } catch (err) {
+    console.log(err);
   }
-})
+});
 
 app.listen(PORT, () => console.log("Server running on PORT " + PORT));
