@@ -144,4 +144,15 @@ app.put("/user", async (req, res) => {
   }
 });
 
+app.put("/addmatch", async (req, res) => {
+  const client = new MongoClient(uri);
+  const { userId, matchedUserId } = req.body;
+
+  try {
+    await client.connect();
+    const database = client.db("ap-data");
+    const users = database.collection("users");
+  }
+})
+
 app.listen(PORT, () => console.log("Server running on PORT " + PORT));
