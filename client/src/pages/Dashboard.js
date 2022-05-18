@@ -36,7 +36,9 @@ const Dashboard = () => {
   useEffect(() => {
     getUser();
     getGenderedUsers();
-  }, [genderedUsers]);
+  }, [user, genderedUsers]);
+
+  console.log(genderedUsers);
 
   // const characters = [
   //   {

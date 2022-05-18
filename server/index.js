@@ -150,7 +150,7 @@ app.put("/addmatch", async (req, res) => {
 
   try {
     await client.connect();
-    const database = client.db("ap-data");
+    const database = client.db("app-data");
     const users = database.collection("users");
     const query = { user_id: userId };
     const updateDocument = {
