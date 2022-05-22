@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [lastDirection, setLastDirection] = useState();
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
-  const userId = cookies.UserId;
+  const userId = cookies.userId;
   const getUser = async () => {
     try {
       const response = await axios.get("http://localhost:8000/user", {
