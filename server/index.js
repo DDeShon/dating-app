@@ -115,6 +115,9 @@ app.get("/users", async (req, res) => {
         },
       },
     ];
+    const foundUsers = await users.aggregate(pipeLine).toArray();
+    console.log(foundUsers);
+    res.send(foundUsers);
 
     const query = { user_id: userId };
     const user = await users.findOne(query);
