@@ -23,7 +23,17 @@ const MatchesDisplay = ({ matches }) => {
 
   console.log(matchedProfiles);
 
-  return <div className="matches-display">Matches</div>;
+  return (
+    <div className="matches-display">
+      {matchedProfiles?.map((match, _index) => (
+        <div key={{ _index }} className="match-card">
+          <div className="img-container">
+            <img src={match?.url} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default MatchesDisplay;
