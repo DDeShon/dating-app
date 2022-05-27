@@ -28,7 +28,7 @@ const MatchesDisplay = ({ matches }) => {
       {matchedProfiles?.map((match, _index) => (
         <div key={{ _index }} className="match-card">
           <div className="img-container">
-            <img src={match?.url} />
+            <img src={match?.url} alt={match?.first_name + "profile"} />
           </div>
         </div>
       ))}
