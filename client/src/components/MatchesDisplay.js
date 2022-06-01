@@ -26,7 +26,11 @@ const MatchesDisplay = ({ matches }) => {
   return (
     <div className="matches-display">
       {matchedProfiles?.map((match, _index) => (
-        <div key={{ _index }} className="match-card">
+        <div
+          key={{ _index }}
+          className="match-card"
+          onClick={setclickedUser(match)}
+        >
           <div className="img-container">
             <img src={match?.url} alt={match?.first_name + " profile"} />
           </div>
