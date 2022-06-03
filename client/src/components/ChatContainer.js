@@ -14,7 +14,7 @@ const ChatContainer = ({ user }) => {
         <button className="option">Chat</button>
       </div>
 
-      <MatchesDisplay matches={user.matches} />
+      <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser} />
 
       <ChatDisplay />
     </div>
