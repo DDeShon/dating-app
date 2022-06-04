@@ -10,7 +10,9 @@ const ChatContainer = ({ user }) => {
       <ChatHeader user={user} />
 
       <div>
-        <button className="option">Matches</button>
+        <button className="option" onClick={() => setClickedUser(null)}>
+          Matches
+        </button>
         <button className="option" disabled={!clickedUser}>
           Chat
         </button>
