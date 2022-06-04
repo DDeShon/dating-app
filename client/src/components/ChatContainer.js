@@ -18,7 +18,12 @@ const ChatContainer = ({ user }) => {
         </button>
       </div>
 
-      <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser} />
+      {clickedUser && (
+        <MatchesDisplay
+          matches={user.matches}
+          setClickedUser={setClickedUser}
+        />
+      )}
 
       <ChatDisplay />
     </div>
