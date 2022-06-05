@@ -9,19 +9,20 @@ const ChatDisplay = ({ user, clickedUser }) => {
   const getUsersMessages = async () => {
     try {
       const response = await axios.get("http://localhost:8000/messages", {
-      params: { userId: userId, correspondingUserId: clickedUserId },
+        params: { userId: userId, correspondingUserId: clickedUserId },
       });
       serUsersMessages(response.data);
     } catch (err) {
-    console.log(err);
-  };
+      console.log(err);
+    }
 
-  return (
-    <>
-      <Chat />
-      <ChatInput />
-    </>
-  );
+    return (
+      <>
+        <Chat />
+        <ChatInput />
+      </>
+    );
+  };
 };
 
 export default ChatDisplay;
