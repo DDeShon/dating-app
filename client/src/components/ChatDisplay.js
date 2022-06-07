@@ -1,10 +1,12 @@
 import axios from "axios";
+import { useEffect } from "react/cjs/react.production.min";
 import Chat from "./Chat";
 import ChatInput from "./ChatInput";
 
 const ChatDisplay = ({ user, clickedUser }) => {
   const userId = user?.user_id;
   const clickedUserId = clickedUser?.user_id;
+  const [usersMessages, setUsersMessages] = useState(null);
 
   const getUsersMessages = async () => {
     try {
@@ -15,6 +17,10 @@ const ChatDisplay = ({ user, clickedUser }) => {
     } catch (err) {
       console.log(err);
     }
+
+    useEffect(() => {
+      getUsersMessages();
+    }, []))
 
     return (
       <>
