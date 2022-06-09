@@ -205,8 +205,8 @@ app.get("/messages", () => {
     }
     const foundMessages = await messages.find(query).toArray();
     res.send(foundMessages);
-  } catch (err) {
-    console.log(err);
+  } finally {
+    await client.close();
   }
   
 });
