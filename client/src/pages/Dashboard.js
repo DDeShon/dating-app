@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const userId = cookies.userId;
+
   const getUser = async () => {
     try {
       const response = await axios.get("http://localhost:8000/user", {
@@ -38,35 +39,6 @@ const Dashboard = () => {
     getGenderedUsers();
   }, [user, genderedUsers]);
 
-  console.log(genderedUsers);
-
-  // const characters = [
-  //   {
-  //     name: "Richard Hendricks",
-  //     url: "https://i.imgur.com/oPj4A8u.jpg",
-  //   },
-  //   {
-  //     name: "Erlich Bachman",
-  //     url: "https://i.imgur.com/oPj4A8u.jpg",
-  //   },
-  //   {
-  //     name: "Monica Hall",
-  //     url: "https://i.imgur.com/oPj4A8u.jpg",
-  //   },
-  //   {
-  //     name: "Jared Dunn",
-  //     url: "https://i.imgur.com/oPj4A8u.jpg",
-  //   },
-  //   {
-  //     name: "Dinesh Chugtai",
-  //     url: "https://i.imgur.com/oPj4A8u.jpg",
-  //   },
-  //   {
-  //     name: "Michael Scott",
-  //     url: "https://lastfm.freetls.fastly.net/i/u/ar0/b1c3c53f4e754d80a1aa0d51bb96f7dc.jpg",
-  //   },
-  // ];
-
   const updateMatches = async (matchedUserId) => {
     try {
       await axios.put("http://localhost:8000/addmatch", {
@@ -78,8 +50,6 @@ const Dashboard = () => {
       console.log(err);
     }
   };
-
-  console.log(user);
 
   const swiped = (direction, swipedUserId) => {
     if (direction === "right") {
