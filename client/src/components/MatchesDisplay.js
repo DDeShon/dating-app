@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 
 const MatchesDisplay = ({ matches, setClickedUser }) => {
   const [matchedProfiles, setMatchedProfiles] = useState(null);
+  const [cookies, setCookie, removeCookie] = useCookies(null);
+
   const matchedUserIds = matches.map(({ user_id }) => user_id);
+  const userId = cookies.UserId;
 
   const getMatches = async () => {
     try {
@@ -19,9 +22,13 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
 
   useEffect(() => {
     getMatches();
-  }, []);
+  }, [matches]);
 
-  console.log(matchedProfiles);
+  const filteredMatchedProfiles = matchedProfiles?.filter(
+    (matchedProfile) =>
+      matchedProfile.matches.filter((profile) => profile.user_id == userId)
+        .length > 0
+  );
 
   return (
     <div className="matches-display">
