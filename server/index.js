@@ -199,6 +199,7 @@ app.get("/messages", async (req, res) => {
   const { userId, correspondingUserId } = req.query;
 
   try {
+    await client.connect();
     const database = client.db("app-data");
     const messages = database.collection("messages");
 
