@@ -98,8 +98,7 @@ app.get("/user", async (req, res) => {
 
 app.get("/users", async (req, res) => {
   const client = new MongoClient(uri);
-  const userId = JSON.parse(req.query.userId);
-  console.log(userId);
+  const userIds = JSON.parse(req.query.userIds);
 
   try {
     await client.connect();
@@ -116,12 +115,12 @@ app.get("/users", async (req, res) => {
       },
     ];
     const foundUsers = await users.aggregate(pipeLine).toArray();
-    console.log(foundUsers);
+
     res.send(foundUsers);
 
-    const query = { user_id: userId };
-    const user = await users.findOne(query);
-    res.send(user);
+    // const query = { user_id: userId };
+    // const user = await users.findOne(query);
+    // res.send(user);
   } finally {
     await client.close();
   }

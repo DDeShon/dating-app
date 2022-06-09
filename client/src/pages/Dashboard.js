@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [lastDirection, setLastDirection] = useState();
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
-  const userId = cookies.userId;
+  const userId = cookies.UserId;
 
   const getUser = async () => {
     try {
@@ -36,8 +36,13 @@ const Dashboard = () => {
 
   useEffect(() => {
     getUser();
-    getGenderedUsers();
-  }, [user, genderedUsers]);
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      getGenderedUsers();
+    }
+  }, []);
 
   const updateMatches = async (matchedUserId) => {
     try {
