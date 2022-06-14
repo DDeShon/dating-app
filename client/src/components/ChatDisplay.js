@@ -23,8 +23,6 @@ const ChatDisplay = ({ user, clickedUser }) => {
     getUsersMessages();
   }, [usersMessages]);
 
-  console.log(usersMessages);
-
   return (
     <>
       <Chat />
