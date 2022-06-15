@@ -23,7 +23,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
   useEffect(() => {
     setUsersMessages(getMessages(userId, clickedUserId));
     setClickedUsersMessages(getMessages(clickedUserId, userId));
-  }, [usersMessages]);
+  }, [usersMessages, clickedUsersMessages]);
 
   return (
     <>
