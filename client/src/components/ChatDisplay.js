@@ -13,15 +13,15 @@ const ChatDisplay = ({ user, clickedUser }) => {
       const response = await axios.get("http://localhost:8000/messages", {
         params: { userId: senderId, correspondingUserId: recipientId },
       });
-      setUsersMessages(response.data);
+      return response.data;
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    getMessages(userId, clickedUserId);
-    getMessages(clickedUserId, userId);
+    setUsersMessages(getMessages(userId, clickedUserId));
+    setClickedUsersMessages(getMessages(clickedUserId, userId));
   }, [usersMessages]);
 
   return (
