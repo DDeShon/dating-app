@@ -25,6 +25,16 @@ const ChatDisplay = ({ user, clickedUser }) => {
     setClickedUsersMessages(getMessages(clickedUserId, userId));
   }, [usersMessages, clickedUsersMessages]);
 
+  const messages = [];
+
+  usersMessages?.forEach((message) => {
+    const formattedMessage = {};
+    formattedMessage["name"] = user?.first_name;
+    formattedMessage["img"] = user?.url;
+    formattedMessage["message"] = message.message;
+    formattedMessage["timestamp"] = message.timestamp;
+  });
+
   return (
     <>
       <Chat />
