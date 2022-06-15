@@ -7,6 +7,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
   const userId = user?.user_id;
   const clickedUserId = clickedUser?.user_id;
   const [usersMessages, setUsersMessages] = useState(null);
+  const [clickedUsersMessages, setClickedUsersMessages] = useState(null);
 
   const getMessages = async (senderId, recipientId) => {
     try {
