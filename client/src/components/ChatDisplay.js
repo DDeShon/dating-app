@@ -34,7 +34,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
   useEffect(() => {
     getUsersMessages();
     getClickedUsersMessages();
-  }, [usersMessages, clickedUsersMessages]);
+  }, []);
 
   const messages = [];
 
@@ -55,9 +55,6 @@ const ChatDisplay = ({ user, clickedUser }) => {
     formattedMessage["timestamp"] = message.timestamp;
     messages.push(formattedMessage);
   });
-
-  console.log("usersMessages", usersMessages);
-  console.log("formattedMessages", messages);
 
   const descendingOrderMessages = messages?.sort((a, b) =>
     a.timestamp.localeCompare(b.timestamp)
