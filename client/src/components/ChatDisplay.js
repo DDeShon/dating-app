@@ -9,20 +9,31 @@ const ChatDisplay = ({ user, clickedUser }) => {
   const [usersMessages, setUsersMessages] = useState(null);
   const [clickedUsersMessages, setClickedUsersMessages] = useState(null);
 
-  const getMessages = async (senderId, recipientId) => {
+  const getUsersMessages = async () => {
     try {
       const response = await axios.get("http://localhost:8000/messages", {
-        params: { userId: senderId, correspondingUserId: recipientId },
+        params: { userId: userId, correspondingUserId: clickedUserId },
       });
-      return response.data;
+      setUsersMessages(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getClickedUsersMessages = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/messages", {
+        params: { userId: clickedUserId, correspondingUserId: userId },
+      });
+      setClickedUsersMessages(response.data);
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    setUsersMessages(getMessages(userId, clickedUserId));
-    setClickedUsersMessages(getMessages(clickedUserId, userId));
+    getUsersMessages();
+    getClickedUsersMessages();
   }, [usersMessages, clickedUsersMessages]);
 
   const messages = [];
