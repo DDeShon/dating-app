@@ -56,6 +56,9 @@ const ChatDisplay = ({ user, clickedUser }) => {
     messages.push(formattedMessage);
   });
 
+  console.log("usersMessages", usersMessages);
+  console.log("formattedMessages", messages);
+
   const descendingOrderMessages = messages?.sort((a, b) =>
     a.timestamp.localeCompare(b.timestamp)
   );
