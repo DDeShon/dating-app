@@ -33,6 +33,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
     formattedMessage["img"] = user?.url;
     formattedMessage["message"] = message.message;
     formattedMessage["timestamp"] = message.timestamp;
+    messages.push(formattedMessage);
   });
 
   return (
