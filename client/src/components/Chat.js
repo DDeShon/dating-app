@@ -12,9 +12,7 @@ const Chat = ({ descendingOrderMessages }) => {
             </div>
           </div>
         ))}
-        ;
       </div>
-      ;
     </>
   );
 };
