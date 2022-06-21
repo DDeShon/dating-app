@@ -62,7 +62,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
   console.log("formattedMessage", messages);
 
   const descendingOrderMessages = messages?.sort((a, b) =>
-    a.timestamp.localeCompare(b.timestamp)
+    a.timestamp.localCompare(b.timestamp)
   );
 
   return (
