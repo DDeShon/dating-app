@@ -10,14 +10,14 @@ const ChatInput = ({
   const userId = user?.user_id;
   const clickedUserId = clickedUser?.user_id;
 
-  const addMessage = async () {
+  const addMessage = async () => {
     const message = {
       timestamp: new Date().toISOString(),
       from_userId: userId,
       to_userId: clickedUserId,
-      message: textArea
-    }
-  }
+      message: textArea,
+    };
+  };
 
   return (
     <div className="chat-input">
