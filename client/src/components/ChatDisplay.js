@@ -40,23 +40,23 @@ const ChatDisplay = ({ user, clickedUser }) => {
 
   console.log("usersMessages", usersMessages);
 
-  // usersMessages?.forEach((message) => {
-  //   const formattedMessage = {};
-  //   formattedMessage["name"] = user?.first_name;
-  //   formattedMessage["img"] = user?.url;
-  //   formattedMessage["message"] = message.message;
-  //   formattedMessage["timestamp"] = message.timestamp;
-  //   messages.push(formattedMessage);
-  // });
+  usersMessages?.forEach((message) => {
+    const formattedMessage = {};
+    formattedMessage["name"] = user?.first_name;
+    formattedMessage["img"] = user?.url;
+    formattedMessage["message"] = message.message;
+    formattedMessage["timestamp"] = message.timestamp;
+    messages.push(formattedMessage);
+  });
 
-  // clickedUsersMessages?.forEach((message) => {
-  //   const formattedMessage = {};
-  //   formattedMessage["name"] = clickedUser?.first_name;
-  //   formattedMessage["img"] = clickedUser?.url;
-  //   formattedMessage["message"] = message.message;
-  //   formattedMessage["timestamp"] = message.timestamp;
-  //   messages.push(formattedMessage);
-  // });
+  clickedUsersMessages?.forEach((message) => {
+    const formattedMessage = {};
+    formattedMessage["name"] = clickedUser?.first_name;
+    formattedMessage["img"] = clickedUser?.url;
+    formattedMessage["message"] = message.message;
+    formattedMessage["timestamp"] = message.timestamp;
+    messages.push(formattedMessage);
+  });
 
   console.log("usersMessages", usersMessages);
   console.log("formattedMessage", messages);
