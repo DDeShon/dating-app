@@ -7,7 +7,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 
 const uri =
-  "mongodb+srv://DDeShon:mypassword@cluster0.4zs5l.mongodb.net/Cluster0?retryWrites=true&w=majority";
+  "mongodb+srv://DDeShon:mypassword@cluster0.4zs5l.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
 app.use(cors());
