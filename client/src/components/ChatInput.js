@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const ChatInput = ({
@@ -17,6 +18,13 @@ const ChatInput = ({
       to_userId: clickedUserId,
       message: textArea,
     };
+
+    try {
+      await axios.post("http://localhost:8000/message", { message });
+      getUsersMessages();
+      getClickedUsersMessages();
+      setTextArea("");
+    } 
   };
 
   return (
