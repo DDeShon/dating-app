@@ -24,7 +24,9 @@ const ChatInput = ({
       getUsersMessages();
       getClickedUsersMessages();
       setTextArea("");
-    } 
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -33,7 +35,9 @@ const ChatInput = ({
         value={textArea}
         onChange={(e) => setTextArea(e.target.value)}
       />
-      <button className="secondary-button">Submit</button>
+      <button className="secondary-button" onClick={addMessage}>
+        Submit
+      </button>
     </div>
   );
 };
