@@ -209,4 +209,8 @@ app.get("/messages", async (req, res) => {
   }
 });
 
+app.post("/message", (req, res) => {
+  const client = new MongoClient(uri);
+});
+
 app.listen(PORT, () => console.log("Server running on PORT " + PORT));
