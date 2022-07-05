@@ -211,6 +211,12 @@ app.get("/messages", async (req, res) => {
 
 app.post("/message", (req, res) => {
   const client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const messages = database.collection("messages");
+  }
 });
 
 app.listen(PORT, () => console.log("Server running on PORT " + PORT));
