@@ -1,14 +1,22 @@
 import Nav from "../components/Nav";
 import AuthModal from "../components/AuthModal";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [isSignedUp, setIsSignedUp] = useState(true);
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
-  const authToken = false;
+  const authToken = cookies.AuthToken;
 
   const handleClick = () => {
+    if (authToken) {
+      removeCookie("UserId", cookies.UserId);
+      removeCookie("AuthToken", cookies.AuthToken);
+      window.location.reload();
+      return;
+    }
     setShowModal(true);
     setIsSignedUp(true);
   };
