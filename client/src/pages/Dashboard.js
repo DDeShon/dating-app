@@ -42,7 +42,7 @@ const Dashboard = () => {
     if (user) {
       getGenderedUsers();
     }
-  }, []);
+  }, [user]);
 
   const updateMatches = async (matchedUserId) => {
     try {
