@@ -1,13 +1,17 @@
 import whiteLogo from "../images/Code_Monkey_BW.png"; //placeholder images
 import colorLogo from "../images/Code_Monkey.png";
 
-const Nav = ({ minimal, setShowModal, showModal, setIsSignedUp }) => {
+const Nav = ({
+  authToken,
+  minimal,
+  setShowModal,
+  showModal,
+  setIsSignedUp,
+}) => {
   const handleClick = () => {
     setShowModal(true);
     setIsSignedUp(false);
   };
-
-  const authToken = false;
 
   return (
     <nav>
