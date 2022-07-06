@@ -85,9 +85,9 @@ const Dashboard = () => {
               {filteredGenderedUsers?.map((genderedUser) => (
                 <TinderCard
                   className="swipe"
-                  key={genderedUser.first_name}
+                  key={genderedUser.user_id}
                   onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
-                  onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}
+                  onCardLeftScreen={() => outOfFrame(genderedUser.user_id)}
                 >
                   <div
                     style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
