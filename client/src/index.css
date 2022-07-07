@@ -24,7 +24,7 @@ h2 {
   color: rgb(255, 255, 255);
   text-transform: uppercase;
   font-size: 15px;
-  background: linear-gradient(45deg, rgb(0, 86, 255), rgb(255, 169, 0));
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 169, 0));
   padding: 12px 30px;
   margin-top: 50px;
   border-radius: 30px;
@@ -33,18 +33,18 @@ h2 {
 }
 
 .primary-button:hover {
-  background: linear-gradient(260deg, rgb(0, 86, 255), rgb(255, 169, 0));
+  background: linear-gradient(260deg, rgb(0, 0, 0), rgb(255, 169, 0));
 }
 
 .secondary-button {
-  color: rgb(0, 86, 255);
+  color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   font-weight: 500;
   font-size: 15px;
   text-transform: uppercase;
   padding: 12px 30px;
   border-radius: 30px;
-  border: solid 2px rgb(0, 86, 255);
+  border: solid 2px rgb(0, 0, 0);
   margin: 6px;
   cursor: pointer;
 }
@@ -72,7 +72,7 @@ nav .logo-container .logo {
 }
 
 nav .nav-button {
-  color: rgb(0, 86, 255);
+  color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   font-size: 20px;
   padding: 10px 20px;
@@ -202,7 +202,7 @@ nav .nav-button:disabled {
 }
 
 .onboarding form input[type="radio"]:checked + label {
-  border: solid 2px rgb(0, 86, 255);
+  border: solid 2px rgb(0, 0, 0);
 }
 
 .onboarding form input[type="submit"]:hover {
@@ -253,7 +253,7 @@ nav .nav-button:disabled {
 
 .card h3 {
   margin-top: 0;
-  color: rgb(0, 86, 255);
+  color: rgb(0, 0, 0);
 }
 
 .dashboard .swipe-info {
@@ -275,7 +275,7 @@ nav .nav-button:disabled {
 
 .chat-container .chat-header {
   display: flex;
-  background: linear-gradient(45deg, rgb(0, 86, 255), rgb(255, 169, 0));
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 169, 0));
   height: 100px;
   justify-content: space-between;
   align-items: center;
@@ -284,7 +284,7 @@ nav .nav-button:disabled {
 .chat-container .option {
   border: none;
   background-color: rgb(255, 255, 255);
-  border-bottom: solid 4px rgb(0, 86, 255);
+  border-bottom: solid 4px rgb(0, 0, 0);
   font-size: 20px;
   margin: 2px;
   padding: 10px;
