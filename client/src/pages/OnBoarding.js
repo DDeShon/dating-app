@@ -49,6 +49,8 @@ const OnBoarding = () => {
 
   console.log(formData);
 
+  // modify to allow for character sheet information
+
   return (
     <>
       <Nav minimal={true} setShowModal={() => {}} showModal={false} />
