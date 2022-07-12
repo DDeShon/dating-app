@@ -104,6 +104,7 @@ app.get("/user", async (req, res) => {
   }
 });
 
+// Get all users by userId
 app.get("/users", async (req, res) => {
   const client = new MongoClient(uri);
   const userIds = JSON.parse(req.query.userIds);
@@ -130,6 +131,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
+// Get all the Gendered Users
 app.get("/gendered-users", async (req, res) => {
   const client = new MongoClient(uri);
   const gender = req.query.gender;
@@ -147,6 +149,7 @@ app.get("/gendered-users", async (req, res) => {
   }
 });
 
+// Update a user in the database
 app.put("/user", async (req, res) => {
   const client = new MongoClient(uri);
   const formData = req.body.formData;
@@ -178,6 +181,7 @@ app.put("/user", async (req, res) => {
   }
 });
 
+// Update user with a match
 app.put("/addmatch", async (req, res) => {
   const client = new MongoClient(uri);
   const { userId, matchedUserId } = req.body;
@@ -197,6 +201,7 @@ app.put("/addmatch", async (req, res) => {
   }
 });
 
+// Get messages by from_userId and to_userId
 app.get("/messages", async (req, res) => {
   const client = new MongoClient(uri);
   const { userId, correspondingUserId } = req.query;
@@ -217,6 +222,7 @@ app.get("/messages", async (req, res) => {
   }
 });
 
+// Add a message to the database
 app.post("/message", async (req, res) => {
   const client = new MongoClient(uri);
   const message = req.body.message;
