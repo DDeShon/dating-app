@@ -13,10 +13,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Default
 app.get("/", (req, res) => {
   res.json("Welcome to my app");
 });
 
+// Sign up
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
   const { email, password } = req.body;
@@ -55,6 +57,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+// Log in
 app.post("/login", async (req, res) => {
   const client = new MongoClient(uri);
   const { email, password } = req.body;
@@ -84,6 +87,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Get individual user
 app.get("/user", async (req, res) => {
   const client = new MongoClient(uri);
   const userId = req.query.userId;
